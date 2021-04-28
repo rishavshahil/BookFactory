@@ -1,0 +1,67 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% block title %} Search Book {% endblock %}
+
+
+{% block current %}Edit Book {% endblock current %}
+
+{% block body %}
+    <!-- Search book  Start-->
+    <div class="container my-3  my-books">
+
+    {% if not books %}
+        <h1>Search Results:</h1>
+        <div class="my-5" style="font-size: 18px">
+            Your search - <br>
+            <b>{{ query }}</b> - did not match any documents. <br>
+            Suggestions: <br>
+            <ul>
+                <li>Make sure that all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords</li>
+            </ul>
+        </div>
+    {% else %}
+
+        <h1>Search Result:</h1>
+        <div class="row my-3">
+            {% for book in books %}
+                <div class="col-md-4 ">
+                    <div class="card mb-4 shadow-sm">
+                        <img src="{{ book.img.url }}" alt="" class="card-img-top">
+
+                        <div class="card-body">
+                            <h5 class="card-title">{{ book.title }}</h5>
+                            <p class="card-text">
+                                {{ book.desc }} <br>
+                                <strong>-{{ book.author }}</strong>
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="#">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Delete
+                                        </button>
+                                    </a>
+                                    <a href="{% url 'editbook' %}?id={{ book.id }}">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </a>
+                                </div>
+                                <small class="text-muted"><b>₹ {{ book.price }}</b></small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    {% endif %}
+    </div>
+    <!-- Search book  end-->
+    <br><br><br>
+    <br><br><br>
+    <br>
+
+
+
+{% endblock body %}
+

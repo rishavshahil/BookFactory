@@ -1,0 +1,83 @@
+{% extends 'profile/base.html' %}
+{% load static %}
+{% block title %} Edit Profile {% endblock title %}
+{% block profile-edit %} active1 {% endblock profile-edit %}
+
+{% block profile-body %}
+    <div class="mx-5 ">
+        <img src="{{ user.userdetails.image.url }}" alt="" class="profile-pic "><br>
+        <h3 class="text-center">{{ user.first_name }} {{ user.last_name }}</h3>
+        <div class="upload">
+            <form action="{% url 'profile-edit' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="image" id="">
+                <button type="submit" value="profile-pic" name="submit" class="btn btn-info btn-sm">Upload</button>
+            </form>
+        </div>
+
+        <br>
+        <form action="{% url 'profile-edit' %}" method="post">
+            {% csrf_token %}
+            <div class="row ">
+                <div class="mb-3 col-6">
+                    <label for="fname" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="fname" name="fname"
+                           placeholder="First Name" value="{{ user.first_name }}">
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="lname" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name"
+                           value="{{ user.last_name }}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1"
+                       placeholder="Enter Your Email" aria-describedby="emailHelp" value="{{ user.email }}" disabled>
+            </div>
+            <div class="row">
+                <div class="mb-3 col-6">
+                    <label for="gender" class="form-label">Gender:</label>
+                    <select class="form-select" aria-label="Default select example" id="gender" name="gender">
+                        {% if user.userdetails.gender == 'Male' %}
+                            <option selected>Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        {% elif user.userdetails.gender == 'Female' %}
+                            <option selected>Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Other">Other</option>
+                        {% elif user.userdetails.gender == 'Other' %}
+                            <option selected>Other</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        {% else %}
+                            <option selected>Select Your Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        {% endif %}
+                    </select>
+                </div>
+                <div class="mb-3 col-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="Phone" name="phone" value="{{ user.userdetails.phone }}"
+                           placeholder="Enter Your Phone Number">
+                </div>
+            </div>
+            <label for="DOB" class="form-label">Date of Birth</label>
+            <div class="mb-3  input-group">
+
+                <input type="text" class="form-control" id="DOB" placeholder="Select Data of Birth"
+                       value="{{ user.userdetails.dob }}">
+                <span class="input-group-text" id="basic-addon2"> <input type="date" class="form-control"
+                                                                         id="DOB" name="dob">
+                            </span>
+            </div>
+            <button type="submit" class="btn btn-success" value="profile" name="submit">Update</button>
+        </form>
+
+        <br><br>
+    </div>
+
+{% endblock profile-body %}

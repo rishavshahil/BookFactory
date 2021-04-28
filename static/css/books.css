@@ -1,0 +1,53 @@
+nav .logout{
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    color: red;
+}
+
+nav .user-name{
+    color: #00bfb2;
+    font-size: 22px;
+    font-weight: 450;
+    margin: 0px 30px 0px 10px;
+}
+nav .user-logo{
+    width: 38px;
+    margin-left: auto;
+    border: 1.8px solid #00bfb2;
+    border-radius: 300px;
+}
+.add-form{
+    padding: 0 12% 0 12%;
+}
+.my-books .card{
+    width: 100%;
+
+}
+.my-books img{
+    height: 190px;
+}
+.last-logo{
+    margin: 0;
+    padding: 0;
+}
+.dm.show{
+    margin: 7px 0 0 -95px;
+}
+@media only screen and (max-width:990px){
+    nav .user-name{
+        margin:0px;
+    }
+    nav .user-logo{
+        margin-top: 13px;
+        width: 6%;
+    }
+    .dm.show{
+    margin: 0px;
+    }
+}
+
+/*edit book*/
+.modal-body img{
+    height: 190px;
+}

@@ -1,0 +1,65 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block title %} About {% endblock title %}
+{% block about %}active{% endblock about %}
+{% block body %}
+     <!-- features start -->
+    <div class="container my-4">
+
+        <div class="row featurette ">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">First Online Library. <span class="text-muted">It’ll blow your
+                        mind.</span></h2>
+                <p class="lead">Some great content for you is here, come and join with us. Imagine some exciting
+                    prose
+                    here.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{% static 'images/about1.jfif' %}" alt=""
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    height="500">
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for
+                        yourself.</span>
+                </h2>
+                <p class="lead">A Story Telling Book? Of course. More placeholder content here to give you an idea of
+                    how
+                    this
+                    layout would work with some actual real-world content in place.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                <img src="{% static 'images/about2.jfif' %}" alt=""
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    height="500">
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">One of the most famous quotes by J.K. Rowling in one of the most stunning visualizations
+                    – obviously by Risa Rodil. You can get this particular design from Redbubble, placed on many items,
+                    including wall art, apparel, iPad cases, mugs, tote bags, and even duvet covers!</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{% static 'images/about3.jfif' %}" alt=""
+                    class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
+                    height="500">
+
+            </div>
+        </div>
+        <hr class="featurette-divider">
+     </div>
+    <!-- features end -->
+{% endblock body %}

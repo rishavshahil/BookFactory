@@ -1,0 +1,47 @@
+{% extends 'profile/base.html' %}
+{% load static %}
+{% block title %} Profile {% endblock title %}
+{% block profile %} active1 {% endblock profile %}
+
+{% block profile-body %}
+    <div class="container ">
+        <div class="mx-5 ">
+
+            <img src="{{ user.userdetails.image.url }}" alt="" class="profile-img "><br>
+            <h2 class="text-center my-1">{{ user.first_name }} {{ user.last_name }}</h2>
+            <br>
+            <table class="table table-bordered user-table " style="width: 70%; margin: auto;">
+                <th class="table-light text-center" colspan="2">
+                    User Details
+                </th>
+
+                <tr>
+                    <td style="width: 50%;">Full Name</td>
+                    <td>{{ user.first_name }} {{ user.last_name }}</td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    {% if user.userdetails.gender == 'Select Your Gender' %}
+                        <td>Unknown</td>
+                    {% else %}
+                        <td>{{ user.userdetails.gender }}</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td >{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <td>DOB</td>
+                    <td>{{ user.userdetails.dob }}</td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>{{ user.userdetails.phone }}</td>
+                </tr>
+
+            </table>
+            <br><br><br><br>
+        </div>
+    </div>
+{% endblock profile-body %}

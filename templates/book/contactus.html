@@ -1,0 +1,50 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% block title %} Contact Us {% endblock %}
+
+{% block contactus %} active {% endblock contactus %}
+{% block current %}Edit Book {% endblock current %}
+
+{% block body %}
+    {% if message %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    <div class="container my-4 contactform">
+        <h1 class="text-center">Contact US</h1>
+        <form method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp"
+                       value="{{ user.first_name }} {{ user.last_name }}">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="emailHelp"
+                value="{{ user.userdetails.phone }}">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com"
+                value="{{ user.email }}">
+            </div>
+            <div class="mb-3">
+                <label for="forTextarea" class="form-label">Feedback</label>
+                <textarea class="form-control" id="forTextarea" rows="3" name="feedback"
+                          placeholder="Give us feedback"></textarea>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="subscribe" name="subscribe">
+                <label class="form-check-label" for="subscribe">Subscribe for mail</label>
+            </div>
+            <button type="submit" value="contactus" name="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <br><br><br>
+
+{% endblock body %}

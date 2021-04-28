@@ -1,0 +1,238 @@
+body {
+    background-color: #f1dfd1;
+    background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
+}
+
+.mainlogo{
+    color: #00bfb2;
+}
+
+.dropdown-menu{
+    background-color: #fee2f8;
+    background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
+}
+
+.searchbook {
+    display: inline-block;
+    border: 2.5px solid teal;
+    border-radius: 7px;
+    padding: 3px 10px;
+    margin-right: 35px;
+    width: 89%;
+    color: #00bfb2;
+}
+
+.searchbook button {
+    background: none;
+    border: none;
+    outline: none;
+    float: right;
+    padding: 0;
+    color: #00bfb2;
+}
+
+.searchbook i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.searchbook input {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 1px 2px;
+    width: 89%;
+    color: turquoise;
+    font-size: 16px;
+}
+
+nav .btn-sm{
+    width: 75px;
+    height: 36px;
+    border-radius: 6px;
+    border-width: 3px;
+    font-weight: 480;
+}
+
+.loginmodal{
+    max-width: 380px;
+
+}
+.signupmodal{
+    max-width: 480px;
+
+}
+.modal-content{
+    background-color: #d5fefd;
+background-image: linear-gradient(315deg, #d5fefd 0%, #fffcff 74%);
+padding-bottom: 10px;
+}
+
+#icon1 {
+    font-size: 22px;
+    color: aliceblue;
+    padding: 7px;
+    width: 34px;
+    text-align: center;
+    height: 34px;
+    background-color: #55acee;
+    border-radius: 100px;
+}
+
+#icon1:hover {
+    color: #55acee;
+    background-color: aliceblue
+}
+
+#icon2 {
+    font-size: 22px;
+    margin-left: 15px;
+    color: aliceblue;
+    padding: 8px;
+    width: 34px;
+    text-align: center;
+    height: 34px;
+    background-color: #3b5999;
+    border-radius: 100px;
+}
+
+#icon2:hover {
+    color: #3b5999;
+    background-color: aliceblue
+}
+
+#icon3 {
+    font-size: 22px;
+    margin-left: 15px;
+    color: aliceblue;
+    padding: 7px;
+    width: 34px;
+    text-align: center;
+    height: 34px;
+    background-color: #e4405f;
+    border-radius: 100px;
+}
+
+#icon3:hover {
+    color: #e4405f;
+    background-color: aliceblue
+}
+
+#icon4 {
+    font-size: 22px;
+    margin-left: 15px;
+    color: aliceblue;
+    padding: 7px;
+    width: 34px;
+    text-align: center;
+    height: 34px;
+    background-color: #0077B5;
+    border-radius: 100px;
+}
+
+#icon4:hover {
+    color: #0077B5;
+    background-color: aliceblue
+}
+
+#icon5 {
+    font-size: 22px;
+    margin-left: 15px;
+    color: aliceblue;
+    padding: 7px;
+    width: 34px;
+    text-align: center;
+    height: 34px;
+    background-color: #25D366;
+    border-radius: 100px;
+}
+.bg-dark{
+    color: black;
+}
+#icon5:hover {
+    color: #25D366;
+    background-color: aliceblue
+}
+
+.footer{
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+footer .slast{
+    /* background-color: rgba(2, 100, 28, 0.31); */
+    background-color: #fee2f8;
+background-image: linear-gradient(315deg, #fee2f8 0%, #dcf8ef 74%);
+
+    padding: 10px 0px 10px 0px;
+}
+footer .last{
+   /* background-color:  rgba(2, 100, 28, 0.38); */
+   background-color: #fdcef3;
+background-image: linear-gradient(315deg, #fdcef3 0%, #bff2e2 75%);
+
+   padding: 7px 0px 7px 15px;
+   font-size: 17px;
+   color:#1a1a1a;
+}
+footer .rights{
+    font-size: 14px;
+
+}
+footer .name{
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 500;
+}
+footer .follow{
+    font-size: 24px;
+    color: #003d66;
+    font-weight: 400;
+    padding-right: 15px;
+}
+@media only screen and (max-width:990px){
+    nav #login{
+        margin-top: 15px ;
+        margin-right: 15px;
+    }
+    .searchbook{
+        width: 100%;
+    }
+    nav #signup{
+        margin-top: 15px ;
+
+    }
+}
+@media only screen and (max-width:1600px){
+    .carousel-inner img{
+        height: auto;
+        width: auto;
+    }
+}
+.col-md-7{
+    align-items: center;
+}
+.featurette{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+}
+.featurette img{
+    border-radius: 250px;
+
+}
+.featurette .featurette-heading{
+    font-size: 52px;
+    font-weight: 400;
+}
+.featurette .lead{
+    font-size: 22px;
+}
+ .contactfooter{
+    margin-top: 200px;
+}
+.contactform{
+    padding: 0px 200px 0px 200px;
+}

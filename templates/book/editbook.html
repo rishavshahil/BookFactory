@@ -1,0 +1,112 @@
+{% extends 'book/base.html' %}
+{% load static %}
+{% block title %} Edit Book {% endblock %}
+
+{% block dropdown %} active {% endblock dropdown %}
+{% block current %}Edit Book {% endblock current %}
+
+{% block body %}
+    <!-- Edit book form Start-->
+    <div class="container my-4 add-form">
+        <h1 class="text-center">Edit Book</h1>
+        <form action="{% url 'editbook' %}" enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="formname" class="form-label">
+                    <i class="fa fa-book"></i> Title:</label>
+                <input type="text" class="form-control" id="formname" aria-describedby="emailHelp"
+                       placeholder="Enter Book Title" name="title" value="{{ book.title }}">
+            </div>
+            <div class="mb-3">
+                <label for="forphone" class="form-label"><i class="fa fa-pencil-square-o"></i> Author:</label>
+                <input type="text" class="form-control" id="forphone" aria-describedby="emailHelp"
+                       placeholder="Enter Author Name" name="author" value="{{ book.author }}">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"><i class="fa fa-inr"></i> Price:</label>
+                <input type="Text" class="form-control" id="exampleFormControlInput1" name="price"
+                       placeholder="Enter Book Price"
+                       value="{{ book.price }}">
+            </div>
+
+
+            <label for="formFile" class="form-label form-l">
+                <i class="fa fa-picture-o"></i> Thumbnail:(Currently: <a href="{{ book.img.url }}">{{ book.img }}</a> )
+            </label>
+            <div class="input-group mb-3">
+
+                <button class="btn btn-primary disabled" type="button" id="button-addon2">Change:</button>
+                <input class="form-control input-file" type="file" name="image" id="formFile">
+
+            </div>
+
+            <div class="mb-3">
+                <label for="forTextarea" class="form-label"><i class="fa fa-list-alt"></i> Description:</label>
+                <textarea class="form-control" id="forTextarea" rows="3" name="desc"
+                          placeholder="Enter Book Description">{{ book.desc }}</textarea>
+            </div>
+            <input type="hidden" name="id" value="{{ book.id }}">
+
+            <div class="row">
+                <div class="col-md-6 cols-sm-2 col-3">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
+                        Delete
+                    </button>
+                </div>
+                <div class="col-md-6 cols-sm-10 col-9" style="text-align: right;">
+                    <button type="submit" class="btn btn-success" value="savecon" name="submit">Save and Continue
+                        Editing
+                    </button>
+                    <button type="submit" class="btn btn-success" value="save" name="submit">Save</button>
+                </div>
+            </div>
+            <!-- delete-Modal start -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel" style="padding-left: 4%">Are You Sure?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+                        <div class="modal-body">
+                            <div class="col ">
+                                <div class="card mb-4 shadow-sm">
+                                    <img src="{{ book.img.url }}" alt="" class="card-img-top">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ book.title }}</h5>
+                                        <p class="card-text">
+                                            {{ book.desc }} <br>
+                                            <strong>-{{ book.author }}</strong>
+                                        </p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small class="text-muted"><b>₹ {{ book.price }}</b></small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                No, take me Back
+                            </button>
+                            <button type="submit" class="btn btn-danger" value="delete" name="submit">Yes, I'm sure
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- delete-Modal end -->
+        </form>
+
+    </div>
+
+
+    <!-- Add book form end-->
+
+
+
+{% endblock body %}

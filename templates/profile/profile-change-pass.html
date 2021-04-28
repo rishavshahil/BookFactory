@@ -1,0 +1,42 @@
+{% extends 'profile/base.html' %}
+{% load static %}
+{% block title %} Change Password {% endblock title %}
+{% block profile-change-pass %} active1 {% endblock profile-change-pass %}
+
+{% block profile-body %}
+    <!-- Change Password -->
+    <div class="container my-4 change-password">
+        <img src="{{ user.userdetails.image.url }}" alt="" class="change-pass">
+        <span class="username">{{ user.first_name }} {{ user.last_name }}</span><br><br>
+        <form action="{% url 'change-password' %}" method="post">
+            {% csrf_token %}
+            {# for message #}
+            {% if message   %}
+                <div class="alert alert-{{ type }} alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endif %}
+            <div class="mb-3">
+                <label for="oldPassword" class="form-label">Current Password</label>
+                <input type="password" class="form-control" id="oldPassword" name="currentpassword">
+            </div>
+            <div class="mb-3">
+                <label for="Password1" class="form-label">New Password</label>
+                <input type="password" class="form-control" id="Password1" name="password1">
+            </div>
+            <div class="mb-3">
+                <label for="Password2" class="form-label">Confirm New Password</label>
+                <input type="password" class="form-control" id="Password2" name="password2">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Change Password</button>
+        </form>
+        <br>
+        <a href="#">Forget Password?</a>
+    </div>
+    <br>
+    <!-- Change Password end -->
+{% endblock profile-body %}
